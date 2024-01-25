@@ -7,8 +7,10 @@ namespace RockPaperScissors.Domain
     {
         public Result PlayRound(Gesture someGesture, Gesture otherGesture)
         {
-            if (someGesture.Beats(otherGesture))
+            if(someGesture.Beats(otherGesture))
                 return Player1Win;
+            else
+                return Player2Win;
 
             throw new ArgumentException();
         }

@@ -18,6 +18,9 @@ namespace RockPaperScissors.Domain
             if(this.Equals(Rock()) && other.Equals(Scissors()))
                 return true;
 
+            if(this.Equals(Rock()) && other.Equals(Paper()))
+                return false;
+
             return false;
         }
     }

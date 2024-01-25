@@ -17,5 +17,16 @@ namespace RockPaperScissors.Test
 
             result.Should().Be(Player1Win);
         }
+
+        [Test]
+        public void Rock_vs_Paper_PaperWin()
+        {
+            var rock = Gesture.Rock();
+            var paper = Gesture.Paper();
+
+            var result = new Game().PlayRound(rock, paper);
+
+            result.Should().Be(Player2Win);
+        }
     }
 }
