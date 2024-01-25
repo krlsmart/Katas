@@ -11,6 +11,7 @@ namespace RockPaperScissors.Domain
                 return Player1Win;
             else if (otherGesture.Beats(someGesture))
                 return Player2Win;
+            else return Draw;
 
             throw new ArgumentException();
         }

@@ -28,5 +28,16 @@ namespace RockPaperScissors.Test
 
             result.Should().Be(Player2Win);
         }
+
+        [Test]
+        public void Rock_vs_Rock_Draw()
+        {
+            var rock = new Rock();
+            var otherRock = new Rock();
+
+            var result = new Game().PlayRound(rock, otherRock);
+
+            result.Should().Be(Draw);
+        }
     }
 }
