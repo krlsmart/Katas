@@ -1,20 +1,21 @@
 using RockPaperScissors.Domain;
 using NUnit.Framework;
 using FluentAssertions;
+using static RockPaperScissors.Domain.Game.Result;
 
 namespace RockPaperScissors.Test
 {
     public class GameRulesTests
     {
         [Test]
-        public void RockBeatsScissors()
+        public void Rock_vs_Scissors_RockWin()
         {
             var rock = Gesture.Rock();
             var scissors = Gesture.Scissors();
 
-            var winner = new Game().Play(rock, scissors);
+            var result = new Game().PlayRound(rock, scissors);
 
-            winner.Should().Be(rock);
+            result.Should().Be(Player1Win);
         }
     }
 }
