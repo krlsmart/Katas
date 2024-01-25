@@ -9,7 +9,7 @@ namespace RockPaperScissors.Domain
         {
             if(someGesture.Beats(otherGesture))
                 return Player1Win;
-            else
+            else if (otherGesture.Beats(someGesture))
                 return Player2Win;
 
             throw new ArgumentException();

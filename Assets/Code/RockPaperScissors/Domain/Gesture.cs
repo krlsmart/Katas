@@ -1,27 +1,31 @@
 namespace RockPaperScissors.Domain
 {
-    public readonly struct Gesture
+    public abstract class Gesture
     {
-        private readonly string id;
+        public abstract bool Beats(Gesture other);
+    }
 
-        Gesture(string id)
+    public class Rock : Gesture
+    {
+        public override bool Beats(Gesture other)
         {
-            this.id = id;
+            return other is Scissors;
         }
+    }
 
-        public static Gesture Rock() => new("Rock");
-        public static Gesture Paper() => new("Paper");
-        public static Gesture Scissors() => new("Scissors");
-
-        public bool Beats(Gesture other)
+    public class Scissors : Gesture
+    {
+        public override bool Beats(Gesture other)
         {
-            if(this.Equals(Rock()) && other.Equals(Scissors()))
-                return true;
+            return other is Paper;
+        }
+    }
 
-            if(this.Equals(Rock()) && other.Equals(Paper()))
-                return false;
-
-            return false;
+    public class Paper : Gesture
+    {
+        public override bool Beats(Gesture other)
+        {
+            return other is Rock;
         }
     }
 }

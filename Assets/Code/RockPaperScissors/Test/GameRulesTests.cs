@@ -10,8 +10,8 @@ namespace RockPaperScissors.Test
         [Test]
         public void Rock_vs_Scissors_RockWin()
         {
-            var rock = Gesture.Rock();
-            var scissors = Gesture.Scissors();
+            var rock = new Rock();
+            var scissors = new Scissors();
 
             var result = new Game().PlayRound(rock, scissors);
 
@@ -21,8 +21,8 @@ namespace RockPaperScissors.Test
         [Test]
         public void Rock_vs_Paper_PaperWin()
         {
-            var rock = Gesture.Rock();
-            var paper = Gesture.Paper();
+            var rock = new Rock();
+            var paper = new Paper();
 
             var result = new Game().PlayRound(rock, paper);
 
