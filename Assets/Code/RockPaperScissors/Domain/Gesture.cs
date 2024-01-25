@@ -8,24 +8,18 @@ namespace RockPaperScissors.Domain
     public class Rock : Gesture
     {
         public override bool Beats(Gesture other)
-        {
-            return other is Scissors;
-        }
+            => other is Scissors;
     }
 
     public class Scissors : Gesture
     {
         public override bool Beats(Gesture other)
-        {
-            return other is Paper;
-        }
+            => other is Paper;
     }
 
     public class Paper : Gesture
     {
         public override bool Beats(Gesture other)
-        {
-            return other is Rock;
-        }
+            => other is Rock;
     }
 }

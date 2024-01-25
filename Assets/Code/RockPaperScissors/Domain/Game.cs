@@ -1,19 +1,16 @@
-﻿using System;
-using static RockPaperScissors.Domain.Game.Result;
+﻿using static RockPaperScissors.Domain.Game.Result;
 
 namespace RockPaperScissors.Domain
 {
     public class Game
     {
-        public Result PlayRound(Gesture someGesture, Gesture otherGesture)
+        public Result PlayRound(Gesture player1Gesture, Gesture player2Gesture)
         {
-            if(someGesture.Beats(otherGesture))
+            if(player1Gesture.Beats(player2Gesture))
                 return Player1Win;
-            else if (otherGesture.Beats(someGesture))
+            else if(player2Gesture.Beats(player1Gesture))
                 return Player2Win;
             else return Draw;
-
-            throw new ArgumentException();
         }
 
         public enum Result
