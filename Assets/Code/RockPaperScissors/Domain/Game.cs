@@ -1,5 +1,4 @@
 ﻿using System;
-using static RockPaperScissors.Domain.Gesture;
 using static RockPaperScissors.Domain.Game.Result;
 
 namespace RockPaperScissors.Domain
@@ -8,7 +7,7 @@ namespace RockPaperScissors.Domain
     {
         public Result PlayRound(Gesture someGesture, Gesture otherGesture)
         {
-            if(someGesture.Equals(Rock()) && otherGesture.Equals(Scissors()))
+            if (someGesture.Beats(otherGesture))
                 return Player1Win;
 
             throw new ArgumentException();
