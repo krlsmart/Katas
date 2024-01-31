@@ -20,5 +20,20 @@ namespace MarsRover.Test
             sut.Y.Should().Be(1);
             sut.LookingAt.Should().Be(result);
         }
+
+        [TestCase(Cardinal.N, Cardinal.E)]
+        [TestCase(Cardinal.W, Cardinal.N)]
+        [TestCase(Cardinal.S, Cardinal.W)]
+        [TestCase(Cardinal.E, Cardinal.S)]
+        public void TurnRight(Cardinal starting, Cardinal result)
+        {
+            var sut = new Rover(1, 1, starting);
+
+            sut.Execute("R");
+
+            sut.X.Should().Be(1);
+            sut.Y.Should().Be(1);
+            sut.LookingAt.Should().Be(result);
+        }
     }
 }

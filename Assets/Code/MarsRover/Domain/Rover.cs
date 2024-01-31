@@ -17,6 +17,8 @@ namespace MarsRover.Domain
         {
             if (order == "L")
                 TurnLeft();
+            else if(order == "R")
+                TurnRight();
         }
 
         private void TurnLeft()
@@ -31,6 +33,21 @@ namespace MarsRover.Domain
                     LookingAt = Cardinal.E; break;
                 case Cardinal.E:
                     LookingAt = Cardinal.N; break;
+            }
+        }
+
+        private void TurnRight()
+        {
+            switch (LookingAt)
+            {
+                case Cardinal.N:
+                    LookingAt = Cardinal.E; break;
+                case Cardinal.W:
+                    LookingAt = Cardinal.N; break;
+                case Cardinal.S:
+                    LookingAt = Cardinal.W; break;
+                case Cardinal.E:
+                    LookingAt = Cardinal.S; break;
             }
         }
     }
