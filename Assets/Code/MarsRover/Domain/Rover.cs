@@ -3,7 +3,7 @@ namespace MarsRover.Domain
     public class Rover
     {
         public int X { get; }
-        public int Y { get; }
+        public int Y { get; private set; }
         public Cardinal LookingAt { get; private set; }
 
         public Rover(int x, int y, Cardinal lookingAt)
@@ -19,6 +19,8 @@ namespace MarsRover.Domain
                 TurnLeft();
             else if(order == "R")
                 TurnRight();
+            else if(order == "M")
+                Move();
         }
 
         private void TurnLeft()
@@ -48,6 +50,15 @@ namespace MarsRover.Domain
                     LookingAt = Cardinal.W; break;
                 case Cardinal.E:
                     LookingAt = Cardinal.S; break;
+            }
+        }
+
+        private void Move()
+        {
+            switch(LookingAt)
+            {
+                case Cardinal.N:
+                    Y += 1; break;
             }
         }
     }

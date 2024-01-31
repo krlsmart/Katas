@@ -35,5 +35,17 @@ namespace MarsRover.Test
             sut.Y.Should().Be(1);
             sut.LookingAt.Should().Be(result);
         }
+
+        [Test]
+        public void Move()
+        {
+            var sut = new Rover(1, 1, Cardinal.N);
+
+            sut.Execute("M");
+
+            sut.X.Should().Be(1);
+            sut.Y.Should().Be(2);
+            sut.LookingAt.Should().Be(Cardinal.N);
+        }
     }
 }
