@@ -2,15 +2,12 @@ namespace MarsRover.Domain
 {
     public class Rover
     {
-        public int X { get; }
-        public int Y { get; private set; }
-        public Cardinal LookingAt { get; private set; }
+        public Position Position { get; private set; }
+        
 
-        public Rover(int x, int y, Cardinal lookingAt)
+        public Rover(Position startingPosition)
         {
-            X = x;
-            Y = y;
-            LookingAt = lookingAt;
+            Position = startingPosition;
         }
 
         public void Execute(string order)
@@ -25,40 +22,40 @@ namespace MarsRover.Domain
 
         private void TurnLeft()
         {
-            switch(LookingAt)
+            switch(Position.LookingAt)
             {
                 case Cardinal.N:
-                    LookingAt = Cardinal.W; break;
+                    Position = Position with { LookingAt = Cardinal.W }; break;
                 case Cardinal.W:
-                    LookingAt = Cardinal.S; break;
+                    Position = Position with { LookingAt = Cardinal.S }; break;
                 case Cardinal.S:
-                    LookingAt = Cardinal.E; break;
+                    Position = Position with { LookingAt = Cardinal.E }; break;
                 case Cardinal.E:
-                    LookingAt = Cardinal.N; break;
+                    Position = Position with { LookingAt = Cardinal.N }; break;
             }
         }
 
         private void TurnRight()
         {
-            switch (LookingAt)
+            switch (Position.LookingAt)
             {
                 case Cardinal.N:
-                    LookingAt = Cardinal.E; break;
+                    Position = Position with { LookingAt = Cardinal.E }; break;
                 case Cardinal.W:
-                    LookingAt = Cardinal.N; break;
+                    Position = Position with { LookingAt = Cardinal.N }; break;
                 case Cardinal.S:
-                    LookingAt = Cardinal.W; break;
+                    Position = Position with { LookingAt = Cardinal.W }; break;
                 case Cardinal.E:
-                    LookingAt = Cardinal.S; break;
+                    Position = Position with { LookingAt = Cardinal.S }; break;
             }
         }
 
         private void Move()
         {
-            switch(LookingAt)
+            switch(Position.LookingAt)
             {
                 case Cardinal.N:
-                    Y += 1; break;
+                    Position = Position with { Y = Position.Y + 1}; break;
             }
         }
     }
@@ -69,5 +66,12 @@ namespace MarsRover.Domain
         W,
         E,
         S
+    }
+
+    public record Position
+    {
+        public int X { get; init; } = 0;
+        public int Y { get; init; } = 0;
+        public Cardinal LookingAt { get; init; } = Cardinal.N;
     }
 }
