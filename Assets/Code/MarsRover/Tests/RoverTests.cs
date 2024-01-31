@@ -33,13 +33,43 @@ namespace MarsRover.Test
         }
 
         [Test]
-        public void Move()
+        public void Move_WhileLookingAt_N()
         {
             var sut = new Rover(new Position { X = 1, Y = 1, LookingAt = Cardinal.N });
 
             sut.Execute("M");
 
             sut.Position.Should().Be(new Position { X = 1, Y = 2, LookingAt = Cardinal.N });
+        }
+
+        [Test]
+        public void Move_WhileLookingAt_W()
+        {
+            var sut = new Rover(new Position { X = 1, Y = 1, LookingAt = Cardinal.W });
+
+            sut.Execute("M");
+
+            sut.Position.Should().Be(new Position { X = 0, Y = 1, LookingAt = Cardinal.W });
+        }
+
+        [Test]
+        public void Move_WhileLookingAt_S()
+        {
+            var sut = new Rover(new Position { X = 1, Y = 1, LookingAt = Cardinal.S });
+
+            sut.Execute("M");
+
+            sut.Position.Should().Be(new Position { X = 1, Y = 0, LookingAt = Cardinal.S });
+        }
+
+        [Test]
+        public void Move_WhileLookingAt_E()
+        {
+            var sut = new Rover(new Position { X = 1, Y = 1, LookingAt = Cardinal.E });
+
+            sut.Execute("M");
+
+            sut.Position.Should().Be(new Position { X = 2, Y = 1, LookingAt = Cardinal.E });
         }
     }
 }

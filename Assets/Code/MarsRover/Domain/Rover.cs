@@ -56,6 +56,12 @@ namespace MarsRover.Domain
             {
                 case Cardinal.N:
                     Position = Position with { Y = Position.Y + 1}; break;
+                case Cardinal.W:
+                    Position = Position with { X = Position.X - 1 }; break;
+                case Cardinal.S:
+                    Position = Position with { Y = Position.Y - 1 }; break;
+                case Cardinal.E:
+                    Position = Position with { X = Position.X + 1 }; break;
             }
         }
     }
