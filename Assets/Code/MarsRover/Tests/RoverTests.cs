@@ -6,16 +6,19 @@ namespace MarsRover.Test
 {
     public class RoverTests
     {
-        [Test]
-        public void TurnLeft()
+        [TestCase(Cardinal.N, Cardinal.W)]
+        [TestCase(Cardinal.W, Cardinal.S)]
+        [TestCase(Cardinal.S, Cardinal.E)]
+        [TestCase(Cardinal.E, Cardinal.N)]
+        public void TurnLeft(Cardinal starting, Cardinal result)
         {
-            var sut = new Rover(1, 1, Cardinal.N);
+            var sut = new Rover(1, 1, starting);
 
             sut.Execute("L");
 
             sut.X.Should().Be(1);
             sut.Y.Should().Be(1);
-            sut.Facing.Should().Be(Cardinal.W);
+            sut.LookingAt.Should().Be(result);
         }
     }
 }

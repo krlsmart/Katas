@@ -4,13 +4,13 @@ namespace MarsRover.Domain
     {
         public int X { get; }
         public int Y { get; }
-        public Cardinal Facing { get; private set; }
+        public Cardinal LookingAt { get; private set; }
 
-        public Rover(int v1, int v2, Cardinal v3)
+        public Rover(int x, int y, Cardinal lookingAt)
         {
-            X = v1;
-            Y = v2;
-            Facing = v3;
+            X = x;
+            Y = y;
+            LookingAt = lookingAt;
         }
 
         public void Execute(string order)
@@ -21,16 +21,16 @@ namespace MarsRover.Domain
 
         private void TurnLeft()
         {
-            switch(Facing)
+            switch(LookingAt)
             {
                 case Cardinal.N:
-                    Facing = Cardinal.W; break;
+                    LookingAt = Cardinal.W; break;
                 case Cardinal.W:
-                    Facing = Cardinal.S; break;
+                    LookingAt = Cardinal.S; break;
                 case Cardinal.S:
-                    Facing = Cardinal.E; break;
+                    LookingAt = Cardinal.E; break;
                 case Cardinal.E:
-                    Facing = Cardinal.N; break;
+                    LookingAt = Cardinal.N; break;
             }
         }
     }
