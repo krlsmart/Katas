@@ -97,10 +97,13 @@ namespace MarsRover.Test
             Assert.Throws<ArgumentException>(act.Invoke);
         }
 
-        [Test]
-        public void Move_Only_ToValidPosition()
+        [TestCase(2, 5, N)]
+        [TestCase(5, 3, E)]
+        [TestCase(0, 4, W)]
+        [TestCase(3, 0, S)]
+        public void Move_Only_ToValidPosition(int startingX, int startingY, Cardinal facing)
         {
-            var startingPosition = new Position(4, 5, N);
+            var startingPosition = new Position(startingX, startingY, facing);
             var sut = new Rover(startingPosition, new Mars(5,5));
 
             sut.Execute("M");
