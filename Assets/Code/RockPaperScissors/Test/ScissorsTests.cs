@@ -10,19 +10,19 @@ namespace RockPaperScissors.Test
         [Test]
         public void Scissors_vs_Paper_ScissorsWin()
         {
-            new Game().PlayRound(new Scissors(), new Paper()).Should().Be(Player1Win);
+            new Game().PlayRound(Gesture_NEW.Scissors, Gesture_NEW.Paper).Should().Be(Player1Win);
         }
 
         [Test]
         public void Scissors_vs_Rock_ScissorsLose()
         {
-            new Game().PlayRound(new Scissors(), new Rock()).Should().Be(Player2Win);
+            new Game().PlayRound(Gesture_NEW.Scissors, Gesture_NEW.Rock).Should().Be(Player2Win);
         }
 
         [Test]
         public void Scissors_vs_Scissors_Draw()
         {
-            new Game().PlayRound(new Scissors(), new Scissors()).Should().Be(Draw);
+            new Game().PlayRound(Gesture_NEW.Scissors, Gesture_NEW.Scissors).Should().Be(Draw);
         }
     }
 }
