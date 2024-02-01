@@ -96,5 +96,16 @@ namespace MarsRover.Test
 
             Assert.Throws<ArgumentException>(act.Invoke);
         }
+
+        [Test]
+        public void Move_Only_ToValidPosition()
+        {
+            var startingPosition = new Position(4, 5, N);
+            var sut = new Rover(startingPosition, new Mars(5,5));
+
+            sut.Execute("M");
+
+            sut.Position.Should().Be(startingPosition);
+        }
     }
 }
