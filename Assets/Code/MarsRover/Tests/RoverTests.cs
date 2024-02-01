@@ -12,11 +12,11 @@ namespace MarsRover.Test
         [TestCase(Cardinal.E, Cardinal.N)]
         public void TurnLeft(Cardinal starting, Cardinal result)
         {
-            var sut = new Rover(new Position { X = 1, Y = 1, LookingAt = starting });
+            var sut = new Rover(new Position(1, 1, starting));
 
             sut.Execute("L");
 
-            sut.Position.Should().Be(new Position { X = 1, Y = 1, LookingAt = result });
+            sut.Position.Should().Be(new Position(1, 1, result));
         }
 
         [TestCase(Cardinal.N, Cardinal.E)]
@@ -25,51 +25,51 @@ namespace MarsRover.Test
         [TestCase(Cardinal.E, Cardinal.S)]
         public void TurnRight(Cardinal starting, Cardinal result)
         {
-            var sut = new Rover(new Position { X = 1, Y = 1, LookingAt = starting });
+            var sut = new Rover(new Position(1, 1, starting));
 
             sut.Execute("R");
 
-            sut.Position.Should().Be(new Position { X = 1, Y = 1, LookingAt = result });
+            sut.Position.Should().Be(new Position(1, 1, result));
         }
 
         [Test]
         public void Move_WhileLookingAt_N()
         {
-            var sut = new Rover(new Position { X = 1, Y = 1, LookingAt = Cardinal.N });
+            var sut = new Rover(new Position(1, 1, Cardinal.N));
 
             sut.Execute("M");
 
-            sut.Position.Should().Be(new Position { X = 1, Y = 2, LookingAt = Cardinal.N });
+            sut.Position.Should().Be(new Position(1, 2, Cardinal.N));
         }
 
         [Test]
         public void Move_WhileLookingAt_W()
         {
-            var sut = new Rover(new Position { X = 1, Y = 1, LookingAt = Cardinal.W });
+            var sut = new Rover(new Position(1, 1, Cardinal.W));
 
             sut.Execute("M");
 
-            sut.Position.Should().Be(new Position { X = 0, Y = 1, LookingAt = Cardinal.W });
+            sut.Position.Should().Be(new Position(0, 1, Cardinal.W));
         }
 
         [Test]
         public void Move_WhileLookingAt_S()
         {
-            var sut = new Rover(new Position { X = 1, Y = 1, LookingAt = Cardinal.S });
+            var sut = new Rover(new Position(1, 1, Cardinal.S));
 
             sut.Execute("M");
 
-            sut.Position.Should().Be(new Position { X = 1, Y = 0, LookingAt = Cardinal.S });
+            sut.Position.Should().Be(new Position(1, 0, Cardinal.S));
         }
 
         [Test]
         public void Move_WhileLookingAt_E()
         {
-            var sut = new Rover(new Position { X = 1, Y = 1, LookingAt = Cardinal.E });
+            var sut = new Rover(new Position(1, 1, Cardinal.E));
 
             sut.Execute("M");
 
-            sut.Position.Should().Be(new Position { X = 2, Y = 1, LookingAt = Cardinal.E });
+            sut.Position.Should().Be(new Position(2, 1, Cardinal.E));
         }
     }
 }
