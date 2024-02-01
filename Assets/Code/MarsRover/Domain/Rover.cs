@@ -65,22 +65,16 @@ namespace MarsRover.Domain
 
         void Move()
         {
-            Position targetPosition = null;
-            switch(Position.LookingAt)
+            var targetPosition = Position.LookingAt switch
             {
-                case Cardinal.N:
-                    targetPosition = Position with { Y = Position.Y + 1}; break;
-                case Cardinal.W:
-                    targetPosition = Position with { X = Position.X - 1 }; break;
-                case Cardinal.S:
-                    targetPosition = Position with { Y = Position.Y - 1 }; break;
-                case Cardinal.E:
-                    targetPosition = Position with { X = Position.X + 1 }; break;
-                default:
-                    throw new System.ArgumentOutOfRangeException();
-            }
+                Cardinal.N => Position with { Y = Position.Y + 1 },
+                Cardinal.W => Position with { X = Position.X - 1 },
+                Cardinal.S => Position with { Y = Position.Y - 1 },
+                Cardinal.E => Position with { X = Position.X + 1 },
+                _ => throw new System.ArgumentOutOfRangeException(),
+            };
 
-            if(mars.IsValidPosition(targetPosition.X, targetPosition.Y))
+            if (mars.IsValidPosition(targetPosition.X, targetPosition.Y))
                 Position = targetPosition;
         }
     }
