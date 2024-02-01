@@ -75,14 +75,26 @@ namespace MarsRover.Test
         }
 
         [Test]
-        public void CreateRover_InValidPosition()
+        public void CreateRover_InValidPosition_DoesNotThrow()
         {
             var mars = new Mars(5, 5);
-            Action act1 = () => new Rover(new Position(1, 1, N), mars);
-            Action act2 = () => new Rover(new Position(6, 6, N), mars);
+            Action act = () => new Rover(new Position(2, 4, N), mars);
 
-            Assert.DoesNotThrow(act1.Invoke);
-            Assert.Throws<ArgumentException>(act2.Invoke);
+            Assert.DoesNotThrow(act.Invoke);
+        }
+
+        [TestCase(-1, 3)]
+        [TestCase(1, -2)]
+        [TestCase(6, 1)]
+        [TestCase(2, 7)]
+        [TestCase(-3, -4)]
+        [TestCase(8, 9)]
+        public void CreateRover_InInvalidPosition_ThrowsArgumentException(int posX, int posY)
+        {
+            var mars = new Mars(5, 5);
+            Action act = () => new Rover(new Position(posX, posY, N), mars);
+
+            Assert.Throws<ArgumentException>(act.Invoke);
         }
     }
 }
