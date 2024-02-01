@@ -110,5 +110,15 @@ namespace MarsRover.Test
 
             sut.Position.Should().Be(startingPosition);
         }
+
+        [Test]
+        public void Execute_MultipleOrders()
+        {
+            var sut = new Rover(Position.Zero, new Mars(5, 5));
+
+            sut.Execute("MRM");
+
+            sut.Position.Should().Be(new Position(1,1,E));
+        }
     }
 }

@@ -4,7 +4,6 @@ namespace MarsRover.Domain
     {
         public Position Position { get; private set; }
         readonly Mars mars;
-        
 
         public Rover(Position startingPosition, Mars mars)
         {
@@ -15,9 +14,29 @@ namespace MarsRover.Domain
             this.mars = mars;
         }
 
-        public void Execute(string order)
+        public void Execute(string input)
         {
-            if (order == "L")
+            var orders = Parser.Split(input);
+            foreach(var order in orders)
+            {
+                if(IsValidOrder(order))
+                    ExecuteSingleOrder(order);
+            }
+        }
+
+        bool IsValidOrder(string order)
+        {
+            if(string.IsNullOrEmpty(order))
+                return false;
+
+            return order.Equals("L")
+                || order.Equals("R")
+                || order.Equals("M");
+        }
+
+        void ExecuteSingleOrder(string order)
+        {
+            if(order == "L")
                 TurnLeft();
             else if(order == "R")
                 TurnRight();
@@ -25,7 +44,7 @@ namespace MarsRover.Domain
                 Move();
         }
 
-        private void TurnLeft()
+        void TurnLeft()
         {
             switch(Position.LookingAt)
             {
@@ -40,7 +59,7 @@ namespace MarsRover.Domain
             }
         }
 
-        private void TurnRight()
+        void TurnRight()
         {
             switch (Position.LookingAt)
             {
@@ -55,7 +74,7 @@ namespace MarsRover.Domain
             }
         }
 
-        private void Move()
+        void Move()
         {
             Position targetPosition = null;
             switch(Position.LookingAt)

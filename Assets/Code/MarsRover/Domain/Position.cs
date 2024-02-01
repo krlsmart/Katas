@@ -9,9 +9,11 @@
             LookingAt = lookingAt;
         }
 
-        public int X { get; init; } = 0;
-        public int Y { get; init; } = 0;
-        public Cardinal LookingAt { get; init; } = Cardinal.N;
+        public int X { get; init; }
+        public int Y { get; init; }
+        public Cardinal LookingAt { get; init; }
+
+        public static Position Zero => new(0, 0, Cardinal.N);
     }
 
     public enum Cardinal
