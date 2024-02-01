@@ -1,16 +1,18 @@
-﻿namespace RockPaperScissors.Domain
+﻿using static RockPaperScissors.Domain.Gesture;
+
+namespace RockPaperScissors.Domain
 {
     public static class GameRules
     {
-        public static bool Beats(this Gesture_NEW gesture, Gesture_NEW other)
+        public static bool Beats(this Gesture gesture, Gesture other)
         {
-            if(gesture.Equals(Gesture_NEW.Rock) && other.Equals(Gesture_NEW.Scissors))
+            if(gesture.Equals(Rock) && other.Equals(Scissors))
                 return true;
 
-            if (gesture.Equals(Gesture_NEW.Paper) && other.Equals(Gesture_NEW.Rock))
+            if (gesture.Equals(Paper) && other.Equals(Rock))
                 return true;
 
-            if (gesture.Equals(Gesture_NEW.Scissors) && other.Equals(Gesture_NEW.Paper))
+            if (gesture.Equals(Scissors) && other.Equals(Paper))
                 return true;
 
             return false;

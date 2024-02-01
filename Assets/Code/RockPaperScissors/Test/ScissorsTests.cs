@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using FluentAssertions;
 using static RockPaperScissors.Domain.Game.Result;
+using static RockPaperScissors.Domain.Gesture;
 
 namespace RockPaperScissors.Test
 {
@@ -10,19 +11,19 @@ namespace RockPaperScissors.Test
         [Test]
         public void Scissors_vs_Paper_ScissorsWin()
         {
-            new Game().PlayRound(Gesture_NEW.Scissors, Gesture_NEW.Paper).Should().Be(Player1Win);
+            new Game().PlayRound(Scissors, Paper).Should().Be(Player1Win);
         }
 
         [Test]
         public void Scissors_vs_Rock_ScissorsLose()
         {
-            new Game().PlayRound(Gesture_NEW.Scissors, Gesture_NEW.Rock).Should().Be(Player2Win);
+            new Game().PlayRound(Scissors, Rock).Should().Be(Player2Win);
         }
 
         [Test]
         public void Scissors_vs_Scissors_Draw()
         {
-            new Game().PlayRound(Gesture_NEW.Scissors, Gesture_NEW.Scissors).Should().Be(Draw);
+            new Game().PlayRound(Scissors, Scissors).Should().Be(Draw);
         }
     }
 }

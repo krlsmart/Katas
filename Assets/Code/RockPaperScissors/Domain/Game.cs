@@ -4,7 +4,7 @@ namespace RockPaperScissors.Domain
 {
     public class Game
     {
-        public Result PlayRound(Gesture_NEW player1Gesture, Gesture_NEW player2Gesture)
+        public Result PlayRound(Gesture player1Gesture, Gesture player2Gesture)
         {
             if(player1Gesture.Beats(player2Gesture))
                 return Player1Win;
