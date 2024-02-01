@@ -3,11 +3,16 @@ namespace MarsRover.Domain
     public class Rover
     {
         public Position Position { get; private set; }
+        readonly Mars mars;
         
 
-        public Rover(Position startingPosition)
+        public Rover(Position startingPosition, Mars mars)
         {
+            if (!mars.IsValidPosition(startingPosition.X, startingPosition.Y))
+                throw new System.ArgumentException("Rover is being created out of Mars");
+
             Position = startingPosition;
+            this.mars = mars;
         }
 
         public void Execute(string order)
