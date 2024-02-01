@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace MarsRover.Domain
 {
     public class Rover
@@ -17,30 +19,17 @@ namespace MarsRover.Domain
         public void Execute(string input)
         {
             var orders = Parser.Split(input);
-            foreach(var order in orders)
-            {
-                if(IsValidOrder(order))
-                    ExecuteSingleOrder(order);
-            }
+            foreach(var order in orders.Select(Order.By))
+                ExecuteSingleOrder(order);
         }
 
-        bool IsValidOrder(string order)
+        void ExecuteSingleOrder(Order order)
         {
-            if(string.IsNullOrEmpty(order))
-                return false;
-
-            return order.Equals("L")
-                || order.Equals("R")
-                || order.Equals("M");
-        }
-
-        void ExecuteSingleOrder(string order)
-        {
-            if(order == "L")
+            if(order.Equals(Order.TurnLeft))
                 TurnLeft();
-            else if(order == "R")
+            if(order.Equals(Order.TurnRight))
                 TurnRight();
-            else if(order == "M")
+            if(order.Equals(Order.Move))
                 Move();
         }
 
