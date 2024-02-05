@@ -10,5 +10,6 @@
         public static Gesture Rock => new("Rock");
         public static Gesture Paper => new("Paper");
         public static Gesture Scissors => new("Scissors");
+        public static Gesture Lizard => new("Lizard");
     }
 }

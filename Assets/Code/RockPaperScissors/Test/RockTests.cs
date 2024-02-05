@@ -15,6 +15,12 @@ namespace RockPaperScissors.Test
         }
 
         [Test]
+        public void Rock_vs_Lizard_RockWin()
+        {
+            new Game().PlayRound(Rock, Lizard).Should().Be(Player1Win);
+        }
+
+        [Test]
         public void Rock_vs_Paper_RockLose()
         {
             new Game().PlayRound(Rock, Paper).Should().Be(Player2Win);

@@ -9,10 +9,19 @@ namespace RockPaperScissors.Domain
             if(gesture.Equals(Rock) && other.Equals(Scissors))
                 return true;
 
-            if (gesture.Equals(Paper) && other.Equals(Rock))
+            if(gesture.Equals(Rock) && other.Equals(Lizard))
                 return true;
 
-            if (gesture.Equals(Scissors) && other.Equals(Paper))
+            if(gesture.Equals(Paper) && other.Equals(Rock))
+                return true;
+
+            if(gesture.Equals(Scissors) && other.Equals(Paper))
+                return true;
+
+            if(gesture.Equals(Scissors) && other.Equals(Lizard))
+                return true;
+
+            if(gesture.Equals(Lizard) && other.Equals(Paper))
                 return true;
 
             return false;
