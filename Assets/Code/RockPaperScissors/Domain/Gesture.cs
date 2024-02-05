@@ -1,15 +1,31 @@
 ﻿namespace RockPaperScissors.Domain
 {
-    public record Gesture
+    public interface Gesture
     {
-        readonly string code;
+        public bool Beats(Gesture other);
+    }
 
-        Gesture(string code)
-            => this.code = code;
+    public readonly struct Rock : Gesture
+    {
+        public bool Beats(Gesture other)
+            => other is Scissors or Lizard;
+    }
 
-        public static Gesture Rock => new("Rock");
-        public static Gesture Paper => new("Paper");
-        public static Gesture Scissors => new("Scissors");
-        public static Gesture Lizard => new("Lizard");
+    public readonly struct Paper : Gesture
+    {
+        public bool Beats(Gesture other)
+            => other is Rock;
+    }
+
+    public readonly struct Scissors : Gesture
+    {
+        public bool Beats(Gesture other)
+            => other is Paper or Lizard;
+    }
+
+    public readonly struct Lizard : Gesture
+    {
+        public bool Beats(Gesture other)
+            => other is Paper;
     }
 }
