@@ -14,6 +14,12 @@ namespace RockPaperScissors.Test
         }
 
         [Test]
+        public void Paper_vs_Spock_PaperWin()
+        {
+            new Game().PlayRound(GesturesFactory.Paper, GesturesFactory.Spock).Should().Be(Player1Win);
+        }
+
+        [Test]
         public void Paper_vs_Scissors_PaperLose()
         {
             new Game().PlayRound(GesturesFactory.Paper, GesturesFactory.Scissors).Should().Be(Player2Win);

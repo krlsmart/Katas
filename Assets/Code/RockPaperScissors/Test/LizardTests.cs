@@ -12,6 +12,12 @@ namespace RockPaperScissors.Test
         {
             new Game().PlayRound(GesturesFactory.Lizard, GesturesFactory.Paper).Should().Be(Player1Win);
         }
+        
+        [Test]
+        public void Lizard_vs_Spock_LizardWins()
+        {
+            new Game().PlayRound(GesturesFactory.Lizard, GesturesFactory.Spock).Should().Be(Player1Win);
+        }
 
         [Test]
         public void Lizard_vs_Scissors_LizardLoses()

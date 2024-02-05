@@ -14,7 +14,7 @@
     public readonly struct Paper : Gesture
     {
         public bool Beats(Gesture other)
-            => other is Rock;
+            => other is Rock or Spock;
     }
 
     public readonly struct Scissors : Gesture
@@ -26,6 +26,12 @@
     public readonly struct Lizard : Gesture
     {
         public bool Beats(Gesture other)
-            => other is Paper;
+            => other is Paper or Spock;
+    }
+
+    public readonly struct Spock : Gesture
+    {
+        public bool Beats(Gesture other)
+            => other is Rock or Scissors;
     }
 }
