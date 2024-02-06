@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TradingCards.Domain
+﻿namespace TradingCards.Domain
 {
     public record Player
     {
