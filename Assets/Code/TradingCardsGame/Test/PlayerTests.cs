@@ -2,16 +2,19 @@ using FluentAssertions;
 using NUnit.Framework;
 using TradingCards.Domain;
 
-public class PlayerTests
+namespace TradingCards.Test
 {
-    [Test]
-    public void Player_ReceivesDamage()
+    public class PlayerTests
     {
-        var sut = new Player();
+        [Test]
+        public void Player_ReceivesDamage()
+        {
+            var sut = new Player();
 
-        var startingHealth = sut.Health;
-        sut.ReceiveDamage(4);
+            var startingHealth = sut.Health;
+            sut.ReceiveDamage(4);
 
-        sut.Health.Should().Be(startingHealth-4);
+            sut.Health.Should().Be(startingHealth-4);
+        }
     }
 }
