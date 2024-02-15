@@ -1,0 +1,19 @@
+{
+    "name": "FunctionalProgramming.Test",
+    "rootNamespace": "",
+    "references": [
+        "FunctionalProgramming.Domain",
+        "BoundfoxStudios.FluentAssertions"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
