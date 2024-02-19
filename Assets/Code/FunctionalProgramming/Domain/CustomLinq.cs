@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace FunctionalProgramming.Domain
 {
-    public class CustomLinq
+    public static class CustomLinq
     {
-        public static IEnumerable<int> Take(IEnumerable<int> values, int amount)
+        public static IEnumerable<int> CTake(this IEnumerable<int> values, int amount)
         {
             return IterateElements(values, (index) => index < amount);
         }

@@ -5,19 +5,19 @@ using System.Linq;
 
 namespace FunctionalProgramming.Test
 {
-    public class CustomLinqTests
+    public class TakeTests
     {
         [Test]
         public void TakeZero()
         {
-            CustomLinq.Take(new int[] { 1, 2, 3, 4 }, 0)
+            new int[] { 1, 2, 3, 4 }.CTake(0)
                 .Should().Equal(Enumerable.Empty<int>());
         }
 
         [Test]
         public void TakeAmount()
         {
-            CustomLinq.Take(new int[] { 1, 2, 3, 4, 5 }, 3)
+            new int[] { 1, 2, 3, 4, 5 }.CTake(3)
                 .Should().Equal(new int[] { 1, 2, 3 });
         }
 
@@ -26,7 +26,7 @@ namespace FunctionalProgramming.Test
         {
             var sequence = new int[] { 1, 2, 3, 4, 5 };
 
-            CustomLinq.Take(sequence, sequence.Count())
+            sequence.CTake(sequence.Count())
                 .Should().Equal(sequence);
         }
     }
