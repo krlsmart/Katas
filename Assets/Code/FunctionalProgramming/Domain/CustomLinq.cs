@@ -8,17 +8,17 @@ namespace FunctionalProgramming.Domain
     {
         public static IEnumerable<int> Take(IEnumerable<int> values, int amount)
         {
-            return IterateElements(values, 0, (index) => index < amount);
+            return IterateElements(values, (index) => index < amount);
         }
 
-        static IEnumerable<int> IterateElements(IEnumerable<int> values, int index, Func<int, bool> condition)
+        static IEnumerable<int> IterateElements(IEnumerable<int> values, Func<int, bool> condition, int index = 0)
         {
             if(index < values.Count())
             {
-                var result = IterateElements(values, index + 1, condition);
+                var result = IterateElements(values, condition, index + 1);
 
                 return condition(index)
-                    ? result.Prepend(values.ElementAt(index))
+                    ? new int[] {values.ElementAt(index)}.Concat(result)
                     : result;
             }
 
