@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FunctionalProgramming.Domain
+namespace FunctionalProgramming.Domain.CustomLinq
 {
     public static class CustomLinq
     {

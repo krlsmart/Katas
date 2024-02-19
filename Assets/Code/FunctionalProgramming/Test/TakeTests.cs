@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
-using FunctionalProgramming.Domain;
+using FunctionalProgramming.Domain.CustomLinq;
 using NUnit.Framework;
 using System.Linq;
 
-namespace FunctionalProgramming.Test
+namespace FunctionalProgramming.CustomLinq.Test
 {
     public class TakeTests
     {
