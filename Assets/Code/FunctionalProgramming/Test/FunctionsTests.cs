@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace FunctionalProgramming.Test
 {
-    public class FirstClassTests
+    public class FunctionsTests
     {
         [Test]
         public void MultiplyBy()
