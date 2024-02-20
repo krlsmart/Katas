@@ -38,10 +38,10 @@ namespace FunctionalProgramming.CustomLinq.Test
         [Test, Description("Este es el test que propone la kata para considerarla resuelta")]
         public void KataTest()
         {
-            Func<int, bool> IsAnEvenNumber = x => x % 2 == 0;
+            static bool IsAnEvenNumber(int x) => x % 2 == 0;
             var sequence = new int[] { 2, 4, 6, 8, 1, 2, 5, 4, 3, 2 };
 
-            sequence.TakeWhile(IsAnEvenNumber).Should().Equal(new int[] { 2, 4, 6, 8 });
+            sequence.CTakeWhile(IsAnEvenNumber).Should().Equal(new int[] { 2, 4, 6, 8 });
         }
     }
 }
