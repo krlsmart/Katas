@@ -24,6 +24,9 @@ namespace FunctionalProgramming.Domain.CustomLinq
         public static IEnumerable<int> CSelect(this IEnumerable<int> values, Func<int, int> predicate)
             => values.CMap(predicate, Enumerable.Empty<int>());
 
+        public static IEnumerable<int> CWhere(this IEnumerable<int> values, Func<int, bool> selector)
+            => values.TakeElementWhen(selector, Enumerable.Empty<int>());
+
 
         #region Aux Methods
         static IEnumerable<int> TakeIndexWhile(this IEnumerable<int> values, Func<int, bool> predicate, IEnumerable<int> result, int index = 0)
@@ -35,6 +38,18 @@ namespace FunctionalProgramming.Domain.CustomLinq
             => index < values.Count() && predicate(values.ElementAt(index))
                 ? values.TakeElementWhile(predicate, result.Append(values.ElementAt(index)), index + 1)
                 : result;
+
+        static IEnumerable<int> TakeElementWhen(this IEnumerable<int> values, Func<int, bool> predicate, IEnumerable<int> result, int index = 0)
+        {
+            if(index < values.Count())
+            {
+                return predicate(values.ElementAt(index))
+                    ? values.TakeElementWhen(predicate, result.Append(values.ElementAt(index)), index + 1)
+                    : values.TakeElementWhen(predicate, result, index + 1);
+            }
+            
+            return result;
+        }
 
         static IEnumerable<int> DropElementWhile(this IEnumerable<int> values, Func<int, bool> predicate, IEnumerable<int> result, int index = 0)
             => index < values.Count() && predicate(values.ElementAt(index))
