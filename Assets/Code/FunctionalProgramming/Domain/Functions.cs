@@ -11,9 +11,6 @@ namespace FunctionalProgramming.Domain
             => array => array.Select(x => x * multiplier);
 
 
-        //https://www.codewars.com/kata/the-dropwhile-function
-        //public static Func<IEnumerable<int>> DropWhile(IEnumerable<int> values, Func<bool> predicate)
-
         //https://www.codewars.com/kata/the-span-function
         //public static Func<IEnumerable<int>> Span(IEnumerable<int> values, Func<bool> predicate)
     }

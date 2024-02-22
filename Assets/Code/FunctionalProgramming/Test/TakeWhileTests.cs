@@ -1,7 +1,6 @@
 ﻿using FluentAssertions;
 using FunctionalProgramming.Domain.CustomLinq;
 using NUnit.Framework;
-using System;
 using System.Linq;
 
 namespace FunctionalProgramming.CustomLinq.Test
