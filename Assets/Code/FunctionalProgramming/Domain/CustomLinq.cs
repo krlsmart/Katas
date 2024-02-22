@@ -17,6 +17,10 @@ namespace FunctionalProgramming.Domain.CustomLinq
         public static IEnumerable<int> CDropWhile(this IEnumerable<int> values, Func<int, bool> predicate)
             => values.DropElementWhile(predicate, Enumerable.Empty<int>());
 
+        //https://www.codewars.com/kata/the-span-function
+        public static (IEnumerable<int> first, IEnumerable<int> last) CSpan(this IEnumerable<int> values, Func<int, bool> predicate)
+            => (values.CTakeWhile(predicate), values.CDropWhile(predicate));
+
 
         #region Aux Methods
         static IEnumerable<int> TakeIndexWhile(this IEnumerable<int> values, Func<int, bool> predicate, IEnumerable<int> result, int index = 0)
