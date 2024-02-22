@@ -21,6 +21,9 @@ namespace FunctionalProgramming.Domain.CustomLinq
         public static (IEnumerable<int> first, IEnumerable<int> last) CSpan(this IEnumerable<int> values, Func<int, bool> predicate)
             => (values.CTakeWhile(predicate), values.CDropWhile(predicate));
 
+        public static IEnumerable<int> CSelect(this IEnumerable<int> values, Func<int, int> predicate)
+            => values.CMap(predicate, Enumerable.Empty<int>());
+
 
         #region Aux Methods
         static IEnumerable<int> TakeIndexWhile(this IEnumerable<int> values, Func<int, bool> predicate, IEnumerable<int> result, int index = 0)
@@ -37,6 +40,11 @@ namespace FunctionalProgramming.Domain.CustomLinq
             => index < values.Count() && predicate(values.ElementAt(index))
                 ? values.DropElementWhile(predicate, result, index + 1)
                 : values.TakeIndexWhile(i => i < values.Count(), result, index);
+
+        static IEnumerable<int> CMap(this IEnumerable<int> values, Func<int, int> predicate, IEnumerable<int> result, int index = 0) 
+            => index < values.Count() 
+                ? values.CMap(predicate, result.Append(predicate(values.ElementAt(index))), index + 1)
+                : result;
         #endregion
     }
 }
