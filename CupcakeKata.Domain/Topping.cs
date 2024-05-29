@@ -21,7 +21,7 @@ public abstract class Topping : Cake
     }
 }
 
-public class Chocolate : Topping
+public sealed class Chocolate : Topping
 {
     protected override string ToppingName => "Chocolate";
     protected override float ToppingPrice => 0.1f;
@@ -30,7 +30,7 @@ public class Chocolate : Topping
     public Chocolate(Topping cake) : base(cake) { }
 }
 
-public class Peanut : Topping
+public sealed class Peanut : Topping
 {
     protected override string ToppingName => "Peanut";
     protected override float ToppingPrice => 0.2f;
