@@ -1,6 +1,12 @@
 namespace CupcakeKata.Domain;
 
-public class Cupcake
+public interface Cake
+{
+    string Name { get; }
+    float Price { get; }
+}
+
+public class Cupcake : Cake
 {
     public string Name { get; }
     public float Price { get; }
@@ -12,24 +18,24 @@ public class Cupcake
     }
 }
 
-public class Chocolate
+public class Chocolate : Cake
 {
     public string Name { get; }
     public float Price { get; }
 
-    public Chocolate(Cupcake cupcake)
+    public Chocolate(Cake cupcake)
     {
         Name = cupcake.Name + " with Chocolate";
         Price = cupcake.Price + 0.1f;
     }
 }
 
-public class Peanut
+public class Peanut : Cake
 {
     public string Name { get; }
     public float Price { get; }
 
-    public Peanut(Chocolate topping)
+    public Peanut(Cake topping)
     {
         Name = topping.Name + " and Peanut";
         Price = topping.Price + 0.2f;
