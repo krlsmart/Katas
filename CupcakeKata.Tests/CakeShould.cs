@@ -31,4 +31,13 @@ public class CakeShould
         sut.Name.Should().Be("Cupcake with Chocolate and Peanut");
         sut.Price.Should().BeApproximately(1.3f, 0.01f);
     }
+    
+    [Test]
+    public void HaveToppingsInAnyOrder()
+    {
+        var sut = new Peanut(new Chocolate(new Peanut(new Cupcake())));
+        
+        sut.Name.Should().Be("Cupcake with Peanut and Chocolate and Peanut");
+        sut.Price.Should().BeApproximately(1.5f, 0.01f);
+    }
 }
