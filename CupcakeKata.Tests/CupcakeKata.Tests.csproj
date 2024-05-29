@@ -23,7 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Cupcake.Domain\Cupcake.Domain.csproj" />
+      <ProjectReference Include="..\CupcakeKata.Domain\CupcakeKata.Domain.csproj" />
     </ItemGroup>
 
 </Project>
