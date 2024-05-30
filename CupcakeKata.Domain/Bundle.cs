@@ -1,15 +1,34 @@
-﻿namespace CupcakeKata.Domain;
+﻿using System.Text;
 
-public class Bundle
+namespace CupcakeKata.Domain;
+
+public class Bundle : Cake
 {
-    public string Name { get; init; }
-    public float Price { get; init; }
-    
+    readonly List<Cake> cakes = [];
     const float DISCOUNT = 0.9f;
     
-    public Bundle(Cake cake)
+    public string Name
     {
-        Name = "Bundle with 1 " + cake.Name;
-        Price = cake.Price * DISCOUNT;
+        get
+        {
+            var sb = new StringBuilder("Bundle with ");
+            foreach(var product in cakes)
+            {
+                sb.Append($"1 {product.Name}");
+                
+                if (product != cakes.Last())
+                    sb.Append(" and ");
+            }
+            
+            return sb.ToString();
+        }
+    }
+
+    public float Price => cakes.Sum(cake => cake.Price) * DISCOUNT;
+
+    
+    public Bundle(params Cake[] cakes)
+    {
+        this.cakes.AddRange(cakes);
     }
 }
