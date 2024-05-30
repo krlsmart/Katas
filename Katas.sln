@@ -12,6 +12,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqrsKata.Tests", "CqrsKata.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CqrsKata.Domain", "CqrsKata.Domain\CqrsKata.Domain.csproj", "{AB11C0E9-AFCF-4146-8A21-6E7BF3EBD85E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EmployeeReportKata", "EmployeeReportKata", "{1EC6DA7B-3E5B-4D1E-91FF-DD28912FCC85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeReportKata.Tests", "EmployeeReportKata.Tests\EmployeeReportKata.Tests.csproj", "{FF49AE6B-E9A5-4DDB-936E-67733E7EB6F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeReportKata.Domain", "EmployeeReportKata.Domain\EmployeeReportKata.Domain.csproj", "{49129991-6BBE-42F9-81FB-67B0BC96DD35}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +28,8 @@ Global
 		{0E7B3B54-A53A-42CE-90F1-98880A358EE0} = {5565CA1C-5E81-45FF-9F7A-F93F76D03B3D}
 		{C69995ED-3FF4-4ECB-A060-7DDED80314C3} = {571239CD-E875-4B8F-B907-40A9B78F8042}
 		{AB11C0E9-AFCF-4146-8A21-6E7BF3EBD85E} = {571239CD-E875-4B8F-B907-40A9B78F8042}
+		{FF49AE6B-E9A5-4DDB-936E-67733E7EB6F1} = {1EC6DA7B-3E5B-4D1E-91FF-DD28912FCC85}
+		{49129991-6BBE-42F9-81FB-67B0BC96DD35} = {1EC6DA7B-3E5B-4D1E-91FF-DD28912FCC85}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4CC41DE2-046F-4DE0-A063-619387070F37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -40,5 +48,13 @@ Global
 		{AB11C0E9-AFCF-4146-8A21-6E7BF3EBD85E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB11C0E9-AFCF-4146-8A21-6E7BF3EBD85E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB11C0E9-AFCF-4146-8A21-6E7BF3EBD85E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF49AE6B-E9A5-4DDB-936E-67733E7EB6F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF49AE6B-E9A5-4DDB-936E-67733E7EB6F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF49AE6B-E9A5-4DDB-936E-67733E7EB6F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF49AE6B-E9A5-4DDB-936E-67733E7EB6F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49129991-6BBE-42F9-81FB-67B0BC96DD35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49129991-6BBE-42F9-81FB-67B0BC96DD35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49129991-6BBE-42F9-81FB-67B0BC96DD35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49129991-6BBE-42F9-81FB-67B0BC96DD35}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
