@@ -24,4 +24,12 @@ public class ShoppingBasketShould
         PriceOf(Book1, Book2, Book3, Book4).Should().Be(8 * 4 * 0.80f);
         PriceOf(Book1, Book2, Book3, Book4, Book5).Should().Be(8 * 5 * 0.75f);
     }
+        
+    [Test]
+    public void NotApplyDiscount_WhenBuyingSameBook()
+    {
+        PriceOf(Book1, Book1).Should().Be(8 * 2);
+        PriceOf(Book2, Book2, Book2).Should().Be(8 * 3);
+        PriceOf(Book3, Book3, Book3, Book3).Should().Be(8 * 4);
+    }
 }

@@ -7,12 +7,19 @@ public static class ShoppingBasket
     public static float PriceOf(params Book[] book)
     {
         var distinctBooks = book.Distinct().Count();
-        return BASE_PRICE * distinctBooks * GetDiscountFor(distinctBooks);
+        var equalBooks = book.Length - distinctBooks;
+        
+        return PriceOfEqualBooks(equalBooks) + PriceOfDistinctBooks(distinctBooks);
     }
 
+    static float PriceOfEqualBooks(int equalBooks)
+        => BASE_PRICE * equalBooks;
+
+    static float PriceOfDistinctBooks(int distinctBooks)
+        => BASE_PRICE * distinctBooks * GetDiscountFor(distinctBooks);
+
     static float GetDiscountFor(int distinctBooks)
-    {
-        return distinctBooks switch
+        => distinctBooks switch
         {
             2 => 0.95f,
             3 => 0.90f,
@@ -20,5 +27,4 @@ public static class ShoppingBasket
             5 => 0.75f,
             _ => 1
         };
-    }
 }
