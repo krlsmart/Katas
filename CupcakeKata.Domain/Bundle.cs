@@ -25,7 +25,6 @@ public class Bundle : Cake
     }
 
     public float Price => cakes.Sum(cake => cake.Price) * DISCOUNT;
-
     
     public Bundle(params Cake[] cakes)
     {

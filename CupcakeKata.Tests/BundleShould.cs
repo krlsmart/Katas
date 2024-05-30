@@ -22,4 +22,13 @@ public class BundleShould
         sut.Name.Should().Be("Bundle with 1 Cupcake and 1 Cookie");
         sut.Price.Should().BeApproximately(2.7f, 0.01f);
     }
+
+    [Test]
+    public void ShouldContainOtherBundles()
+    {
+        var sut = new Bundle(new Cookie(), new Bundle(new Cupcake(), new Cookie()));
+        
+        sut.Name.Should().Be("Bundle with 1 Cookie and 1 Bundle with 1 Cupcake and 1 Cookie");
+        sut.Price.Should().BeApproximately(4.23f, 0.01f);
+    }
 }
