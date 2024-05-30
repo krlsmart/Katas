@@ -12,5 +12,6 @@ public class Reporter
     public IEnumerable<Employee> AllEmployeesAllowedToWorkOnSundays()
         => repo.All()
             .Where(e => e.Age >= 18)
-            .OrderBy(e => e.Name);
+            .OrderBy(e => e.Name)
+            .Select(e => e with { Name = e.Name.ToUpper() });
 }

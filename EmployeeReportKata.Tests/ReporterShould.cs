@@ -24,4 +24,14 @@ public class ReporterShould
         
         result.Should().BeInAscendingOrder(e => e.Name);
     }
+    
+    [Test]
+    public void ShowTheListOfEmployees_Capitalized()
+    {
+        var sut = new Reporter(new HardcodedRepo());
+        
+        var result = sut.AllEmployeesAllowedToWorkOnSundays();
+        
+        result.All(e => e.Name == e.Name.ToUpper()).Should().BeTrue();
+    }
 }
