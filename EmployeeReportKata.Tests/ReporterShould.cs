@@ -16,13 +16,13 @@ public class ReporterShould
     }
 
     [Test]
-    public void ShowTheListOfEmployees_SortedByName()
+    public void ShowTheListOfEmployees_SortedByNameDescending()
     {
         var sut = new Reporter(new HardcodedRepo());
         
         var result = sut.AllEmployeesAllowedToWorkOnSundays();
         
-        result.Should().BeInAscendingOrder(e => e.Name);
+        result.Should().BeInDescendingOrder(e => e.Name);
     }
     
     [Test]
