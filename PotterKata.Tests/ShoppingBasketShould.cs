@@ -7,6 +7,12 @@ namespace PotterKata.Tests;
 public class ShoppingBasketShould
 {
     [Test]
+    public void CostZero_WhenBasketIsEmpty()
+    {
+        PriceOf().Should().Be(0);
+    }
+    
+    [Test]
     public void CalculatePrice_OfASingleBook()
     {
         PriceOf(Book1).Should().Be(8);
