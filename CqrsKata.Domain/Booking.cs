@@ -9,6 +9,6 @@ public class Booking
         this.repo = repo;
     }
 
-    public Task<IEnumerable<Room>> FreeRooms()
-        => repo.FreeRooms();
+    public Task<IEnumerable<Room>> FreeRooms(DateTime arrival, DateTime departure)
+        => repo.FreeRooms(arrival, departure);
 }
