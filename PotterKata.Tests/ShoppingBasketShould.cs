@@ -43,8 +43,14 @@ public class ShoppingBasketShould
     public void ApplyDiscount_OnlyToDifferentBooks()
     {
         PriceOf(Book1, Book2, Book1).Should().Be(8 * 2 * 0.95f + 8);
-        PriceOf(Book1, Book2, Book1, Book2).Should().Be(8 * 2 * 0.95f + 8 * 2);
-        PriceOf(Book1, Book2, Book3, Book1, Book2, Book3).Should().Be(8 * 3 * 0.9f + 8 * 3);
-        PriceOf(Book1, Book2, Book3, Book1, Book2, Book5).Should().Be(8 * 4 * 0.8f + 8 * 2);
+    }
+
+    [Test(Description = "Acceptance test")]
+    public void ApplyBestPossibleDiscount()
+    {
+        PriceOf(Book1, Book1, Book2, Book2, Book3, Book3, Book4, Book5).Should().Be(8 * 4 * 0.8f + 8 * 4 * 0.8f);
+        PriceOf(Book1, Book2, Book1, Book2).Should().Be(8 * 2 * 0.95f + 8 * 2 * 0.95f);
+        PriceOf(Book1, Book2, Book3, Book1, Book2, Book3).Should().Be(8 * 3 * 0.9f + 8 * 3 * 0.9f);
+        PriceOf(Book1, Book2, Book3, Book1, Book2, Book5).Should().Be(8 * 3 * 0.9f + 8 * 3 * 0.9f);
     }
 }

@@ -3,17 +3,32 @@
 public static class ShoppingBasket
 {
     const float BASE_PRICE = 8f;
-
-    public static float PriceOf(params Book[] book)
+    
+    public static float PriceOf(params Book[] books)
     {
-        var distinctBooks = book.Distinct().Count();
-        var equalBooks = book.Length - distinctBooks;
+        var bookGroups = new List<List<Book>> { new() };
+        DistributeRepeatedBooksInDifferentGroups();
+        DistributeNotRepeatedBooks();
+        return bookGroups.Sum(g => PriceOfDistinctBooks(g.Count));
         
-        return PriceOfEqualBooks(equalBooks) + PriceOfDistinctBooks(distinctBooks);
-    }
+        
+        void DistributeRepeatedBooksInDifferentGroups()
+        {
+            foreach(var book in ShoppingBasketHelper.RepeatedBooksOf(books))
+            {
+                if(bookGroups.Any(g => !g.Contains(book)))
+                    bookGroups.First(g => !g.Contains(book)).Add(book);
+                else
+                    bookGroups.Add(new() { book });
+            }
+        }
 
-    static float PriceOfEqualBooks(int equalBooks)
-        => BASE_PRICE * equalBooks;
+        void DistributeNotRepeatedBooks()
+        {
+            foreach(var book in ShoppingBasketHelper.NotRepeatedBooksOf(books))
+                bookGroups.OrderBy(g => g.Count).First().Add(book);
+        }
+    }
 
     static float PriceOfDistinctBooks(int distinctBooks)
         => BASE_PRICE * distinctBooks * GetDiscountFor(distinctBooks);
