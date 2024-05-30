@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PotterKata", "PotterKata", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PotterKata.Tests", "PotterKata.Tests\PotterKata.Tests.csproj", "{A8A18E90-0D09-4108-A17A-DF9C3E59AFB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PotterKata.Domain", "PotterKata.Domain\PotterKata.Domain.csproj", "{53631716-80F6-4501-8B7F-F2595D60C8E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,7 @@ Global
 		{FF49AE6B-E9A5-4DDB-936E-67733E7EB6F1} = {1EC6DA7B-3E5B-4D1E-91FF-DD28912FCC85}
 		{49129991-6BBE-42F9-81FB-67B0BC96DD35} = {1EC6DA7B-3E5B-4D1E-91FF-DD28912FCC85}
 		{A8A18E90-0D09-4108-A17A-DF9C3E59AFB3} = {A9E2BA08-F033-4CF9-B251-DB9C217574E6}
+		{53631716-80F6-4501-8B7F-F2595D60C8E1} = {A9E2BA08-F033-4CF9-B251-DB9C217574E6}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4CC41DE2-046F-4DE0-A063-619387070F37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -65,5 +68,9 @@ Global
 		{A8A18E90-0D09-4108-A17A-DF9C3E59AFB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8A18E90-0D09-4108-A17A-DF9C3E59AFB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8A18E90-0D09-4108-A17A-DF9C3E59AFB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53631716-80F6-4501-8B7F-F2595D60C8E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53631716-80F6-4501-8B7F-F2595D60C8E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53631716-80F6-4501-8B7F-F2595D60C8E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53631716-80F6-4501-8B7F-F2595D60C8E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -22,4 +22,8 @@
         <Using Include="NUnit.Framework"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\PotterKata.Domain\PotterKata.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
