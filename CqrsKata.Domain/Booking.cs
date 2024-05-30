@@ -1,14 +1,17 @@
 ﻿namespace CqrsKata.Domain;
 
-public class Booking
+public record Booking
 {
-    readonly BookingRepository repo;
+    public Guid ClientId { get; }
+    public string RoomName { get; }
+    public DateTime Arrival { get; }
+    public DateTime Departure { get; }
 
-    public Booking(BookingRepository repo)
+    public Booking()
     {
-        this.repo = repo;
+        ClientId = Guid.NewGuid();
+        RoomName = string.Empty;
+        Arrival = DateTime.Now;
+        Departure = Arrival.AddDays(1);
     }
-
-    public Task<IEnumerable<Room>> FreeRooms(DateTime arrival, DateTime departure)
-        => repo.FreeRooms(arrival, departure);
 }
